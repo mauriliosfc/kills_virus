@@ -18,6 +18,11 @@ const Route = use('Route')
 
 Route.get('/', ({ request }) => {
     return { greeting: "hello" }
-})
+}).middleware('auth')
 
-Route.post('register', 'AuthController.register')
+/*
+    Authentication
+*/
+Route.post('/register', 'AuthController.register')
+Route.post('/authenticate', 'AuthController.authenticate')
+Route.post('/logout', 'AuthController.logout')
