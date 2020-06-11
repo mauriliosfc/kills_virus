@@ -16,9 +16,9 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', ({ request }) => {
-    return { greeting: "hello" }
-}).middleware('auth')
+Route.get('/welcome', ({ view }) => {
+    return view.render('welcome')
+})
 
 /*
     Authentication
@@ -26,3 +26,17 @@ Route.get('/', ({ request }) => {
 Route.post('/register', 'AuthController.register')
 Route.post('/authenticate', 'AuthController.authenticate')
 Route.post('/logout', 'AuthController.logout')
+
+/**
+ * Store
+ */
+
+Route.post('/store', 'StoreController.register')
+Route.get('/stores', 'StoreController.get')
+
+/**
+ * Product
+ */
+
+Route.post('/product', 'ProductController.register')
+Route.get('/products', 'ProductController.get')
