@@ -1,6 +1,7 @@
 'use strict'
 
 const Product = use('App/Models/Product')
+const Database = use('Database')
 class ProductController {
 
     async register({ request }) {
@@ -13,6 +14,12 @@ class ProductController {
     async get({ request }) {
         const products = await Product.all()
         return products
+    }
+
+    async getProductLoja(){
+        return await Database
+            .table('products')
+                .innerJoin('stores', 'stores.id', 'products.store_id')
     }
 }
 

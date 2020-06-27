@@ -39,4 +39,4 @@ Route.get('/stores', 'StoreController.get')
  */
 
 Route.post('/product', 'ProductController.register')
-Route.get('/products', 'ProductController.get')
+Route.get('/products', 'ProductController.getProductLoja')
