@@ -1,7 +1,7 @@
 version: "3"
 
 services: 
-    node:
+    node_api:
         build: containers/node/.
         command: npm start
         ports:
@@ -16,7 +16,7 @@ services:
         ports:
             - 3001:80
         depends_on:
-            - node
+            - node_api
         volumes:
             - ./containers/nginx/nginx.conf:/etc/adonis/nginx/conf.d/default.conf:ro
             - ./containers/nginx:/var/log/adonis/nginx
